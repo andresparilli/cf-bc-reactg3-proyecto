@@ -11,9 +11,7 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 
 # Consideraciones Técnicas
 ## Hooks Reusables
- - [ ] Se deben implementar al menos 1 hook para demostrar el
-       aprendizaje de esta técnica para reutilizar el código a lo largo
-       del proyecto.       
+ - [ ] Se deben implementar al menos 1 hook para demostrar el aprendizaje de esta técnica para reutilizar el código a lo largo del proyecto.       
  - [ ] El nombre de los hooks debe ser claro y conciso.
 
 ## Zustand
@@ -34,7 +32,7 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 - [ ] El proyecto debe implementar al menos 3 rutas utilizando lo visto en clase React router debe ser utilizado
 
 ## Formularios
-- [ ] Se debe de implementar la librería de React hook form en los formularios del proyecto. 
+- [X] Se debe de implementar la librería de React hook form en los formularios del proyecto. 
 - [ ] Debe contener al menos 1 formulario y su respectivo manejo de errores
 
 ## Deploy a servidor
