@@ -15,7 +15,7 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
  - [ ] El nombre de los hooks debe ser claro y conciso.
 
 ## Zustand
-- [ ] El proyecto debe utilizar Zustand como manejador de estado global Si el estudiante quiere implementar otro estado global puede hacerlo, solo hay que justificarlo en el documento 
+- [X] El proyecto debe utilizar Zustand como manejador de estado global Si el estudiante quiere implementar otro estado global puede hacerlo, solo hay que justificarlo en el documento 
 - [ ] El proyecto debe contener al menos 2 stores para guardar la información 
 - [ ] El manejadror de estado se debe emplear principalmente para almacenar la infromación obtendida de una API El uso de librerias complmento es valido (selectores, actions) 
 - [ ] La infromación ens stores debe ser consumida por los componentes
@@ -29,7 +29,7 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 - [ ] El uso Axios o Fetch es a criterio del estudiante. *Deberá justificarlo dentro del archivo final*
 
 ## Routing
-- [ ] El proyecto debe implementar al menos 3 rutas utilizando lo visto en clase React router debe ser utilizado
+- [X] El proyecto debe implementar al menos 3 rutas utilizando lo visto en clase React router debe ser utilizado
 
 ## Formularios
 - [X] Se debe de implementar la librería de React hook form en los formularios del proyecto. 
