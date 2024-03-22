@@ -9,7 +9,7 @@ const Home = () => {
         <Card.Img variant="top" src="../assets/react.svg" />
         <Card.Body>
           <Card.Text>
-            Somos tu one stop de estudios en el exterior.
+            "Somos tu one stop de estudios en el exterior."
           </Card.Text>
         </Card.Body>
       </Card>
