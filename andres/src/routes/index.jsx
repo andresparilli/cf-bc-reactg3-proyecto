@@ -2,7 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from '../views/Home.tsx';
+import Home from '../views/home.tsx';
 import Error404 from '../views/Error404';
 import Register from '../views/Register.tsx';
 import Student from '../views/Student.tsx';
