@@ -1,13 +1,35 @@
+import React from 'react'; // Add React import
 import { useForm } from 'react-hook-form';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const RegisterForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+interface RegisterFormData {
+  role: string;
+  cedula: string;
+  fname: string;
+  lname: string;
+  email: string;
+  movil: string;
+}
 
-  const onSubmit = (data) => console.log(data);
+type FieldErrors<T> = {
+  [key in keyof T]?: { type: string; message: string };
+};
+
+// Explicitly specify component props and return type
+const RegisterForm: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormData>();
+
+  // Define types for onSubmit parameters and return value
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = (data: RegisterFormData) => {
+    console.log(data);
+  };
 
   return (
     <Container>
@@ -15,7 +37,7 @@ const RegisterForm = () => {
         <Row className="justify-content-md-center">
           <Col>
             <Form.Label>¿Quién eres?: </Form.Label>
-            <select {...register("¿Quién eres?", { required: true })}>
+            <select {...register("role", { required: true })}>
               <option value="Estudiante">Estudiante</option>
               <option value="Padre">Padre</option>
             </select>
@@ -27,7 +49,7 @@ const RegisterForm = () => {
             <input
               type="text"
               placeholder="Cedula"
-              {...register("Cedula", { required: true, max: 8, min: 5 })}
+              {...register("cedula", { required: true, max: 8, min: 5 })}
             />
           </Col>
         </Row>
@@ -37,11 +59,11 @@ const RegisterForm = () => {
             <input
               type="text"
               placeholder="Nombres"
-              {...register("Nombres", { required: true })}
+              {...register("fname", { required: true })}
             /><input
             type="text"
             placeholder="Apellidos"
-            {...register("Apellidos", { required: true })}
+            {...register("lname", { required: true })}
           />
           </Col>
         </Row>
@@ -51,7 +73,7 @@ const RegisterForm = () => {
             <input
               type="text"
               placeholder="Email"
-              {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+              {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             />
           </Col>
         </Row>
@@ -61,7 +83,7 @@ const RegisterForm = () => {
             <input
               type="tel"
               placeholder="Teléfono de contacto"
-              {...register("Teléfono de contacto", { required: true })}
+              {...register("movil", { required: true })}
             />
           </Col>
         </Row>
@@ -71,6 +93,13 @@ const RegisterForm = () => {
           </Col>
         </Row>
       </form>
+      <ul>
+          {Object.keys(errors).map((field) => (
+  <li key={field}>
+    {field}: {errors[field]?.message}
+  </li>
+))}
+    </ul>
     </Container>
   );
 };
