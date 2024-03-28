@@ -16,7 +16,7 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 
 ## Zustand
 - [X] El proyecto debe utilizar Zustand como manejador de estado global Si el estudiante quiere implementar otro estado global puede hacerlo, solo hay que justificarlo en el documento 
-- [ ] El proyecto debe contener al menos 2 stores para guardar la información 
+- [X] El proyecto debe contener al menos 2 stores para guardar la información 
 - [ ] El manejadror de estado se debe emplear principalmente para almacenar la infromación obtendida de una API El uso de librerias complmento es valido (selectores, actions) 
 - [ ] La infromación ens stores debe ser consumida por los componentes
 
