@@ -1,5 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import Link from 'react-router-dom';
+import { useState } from 'react';
 
 
 // Assuming you have an array of student data
@@ -8,7 +9,17 @@ const students = [
   { cedula: 2, nombres: 'Jacob', apellidos: 'Thornton', email: '@fat' },
 ];
 
+
 const StudentList = () => {
+
+  const [value, setValue] = useState(0);
+  setTimeout(()=>{
+    setValue(value + 1) 
+  },1000);
+  if (value < 2) {
+    return <div>Cargando registrados...</div>;
+  }
+
   return (
     <Table striped bordered hover variant="light">
       <thead>
