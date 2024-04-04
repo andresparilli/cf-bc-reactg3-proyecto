@@ -6,7 +6,8 @@ import Home from '../views/home.tsx';
 import Error404 from '../views/Error404';
 import Register from '../views/Register.tsx';
 import Student from '../views/Student.tsx';
-import ShowQR from '../components/ShowQR.tsx'
+import ShowQR from '../components/ShowQR.tsx';
+import Rsvp from '../views/rsvp.tsx';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,16 @@ const router = createBrowserRouter([
     {
         path: '/Student/:studentId',
         element: <ShowQR />
+    },
+    {
+        path: '/rsvp',
+        element: <Rsvp />,
+        children: [
+            {
+                path: 'check-in',
+                element: <div>Check In Students</div>,
+            },
+        ]
     }
 
 
