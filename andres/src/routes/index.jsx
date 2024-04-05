@@ -8,6 +8,8 @@ import Register from '../views/Register.tsx';
 import Student from '../views/Student.tsx';
 import ShowQR from '../components/ShowQR.tsx';
 import Rsvp from '../views/rsvp.tsx';
+import Login from '../views/login.tsx';
+import PrivateRoute from '../components/PrivateRoute.tsx';
 
 const router = createBrowserRouter([
     {
@@ -21,11 +23,23 @@ const router = createBrowserRouter([
     },
     {
         path: '/Student',
-        element: <Student />
+        element: (
+            <PrivateRoute>
+                <Student />
+            </PrivateRoute>
+            )
     },
     {
         path: '/Student/:studentId',
-        element: <ShowQR />
+        element: (
+            <PrivateRoute>
+                <ShowQR />
+            </PrivateRoute>
+            )
+    },
+    {
+        path: '/auth',
+        element: <Login />
     },
     {
         path: '/rsvp',
