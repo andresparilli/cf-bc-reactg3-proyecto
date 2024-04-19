@@ -6,9 +6,9 @@ import styles from './home.module.css';
 const Home = () => {
     return (
 
-        <Container className="p-6">
+        <Container className="p-2">
       <Card>
-        <Card.Img src={Logo} className={styles.logo} />
+        <Card.Img variant="side" src={Logo} className={styles.logo} />
         <Card.Body>
           <Card.Text>
             "Somos tu one stop de estudios en el exterior."
