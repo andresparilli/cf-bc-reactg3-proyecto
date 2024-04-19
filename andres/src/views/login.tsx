@@ -35,6 +35,7 @@ const Login = () => {
                 </label>
                 <button type="submit">Iniciar sesion</button>
             </form>
+            <p>Se puede usar cualquier usuario y clave, solo esta a modo prueba de storage</p>
         </div>
     );
 };
