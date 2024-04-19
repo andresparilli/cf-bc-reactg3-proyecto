@@ -11,8 +11,8 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 
 # Consideraciones Técnicas
 ## Hooks Reusables
- - [ ] Se deben implementar al menos 1 hook para demostrar el aprendizaje de esta técnica para reutilizar el código a lo largo del proyecto.       
- - [ ] El nombre de los hooks debe ser claro y conciso.
+ - [X] Se deben implementar al menos 1 hook para demostrar el aprendizaje de esta técnica para reutilizar el código a lo largo del proyecto.       
+ - [X] El nombre de los hooks debe ser claro y conciso.
 
 ## Zustand
 - [X] El proyecto debe utilizar Zustand como manejador de estado global Si el estudiante quiere implementar otro estado global puede hacerlo, solo hay que justificarlo en el documento 
@@ -22,18 +22,18 @@ El proyecto se trata de un sitio web que incluya el aprendizaje obtenido durante
 
 ## Pruebas unitarias
 - [ ] Se debe de implementar pruebas en al menos 2 componentes del frontend React Testing Library es el sugerido, ya que fue lo que se vio en las sesiones. 
-- [ ] Si se quiere implementar otra herramienta ajena a lo visto se puede hacer, solo se debe de justificar en la documentación.
+- [X] Si se quiere implementar otra herramienta ajena a lo visto se puede hacer, solo se debe de justificar en la documentación.
 
 ## Llamadas a la API
-- [ ] El proyecto debe estar haciendo peticiones a una API Remota No es válido hacer peticiones locales a archivos del proyecto 
-- [ ] El uso Axios o Fetch es a criterio del estudiante. *Deberá justificarlo dentro del archivo final*
+- [X] El proyecto debe estar haciendo peticiones a una API Remota No es válido hacer peticiones locales a archivos del proyecto 
+- [X] El uso Axios o Fetch es a criterio del estudiante. *Deberá justificarlo dentro del archivo final*
 
 ## Routing
 - [X] El proyecto debe implementar al menos 3 rutas utilizando lo visto en clase React router debe ser utilizado
 
 ## Formularios
 - [X] Se debe de implementar la librería de React hook form en los formularios del proyecto. 
-- [ ] Debe contener al menos 1 formulario y su respectivo manejo de errores
+- [X] Debe contener al menos 1 formulario y su respectivo manejo de errores
 
 ## Deploy a servidor
 - [ ] El proyecto debe desplegarse como se vio en clase La url del proyecto debe de ser de acceso público
