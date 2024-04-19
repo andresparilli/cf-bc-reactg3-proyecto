@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const useCheckBox = (studentId) => {
+const useCheckBox = (id) => {
 
     const {isAssitantChecked, setIsAssitantChecked} = useState();
 

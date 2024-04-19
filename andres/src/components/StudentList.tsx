@@ -9,8 +9,8 @@ import useCheckBox from '../hooks/useCheckBox.js';
 
 const students = studentsData;
 
-const StudentList = (studentId) => {
-  const {isAssitantChecked} = useCheckBox(studentId);
+const StudentList = (id) => {
+  const {isAssitantChecked} = useCheckBox(id);
 
 
   const navigate = useNavigate();
