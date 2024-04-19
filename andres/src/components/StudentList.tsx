@@ -2,7 +2,9 @@ import Table from 'react-bootstrap/Table';
 import studentsData from '../data/students.json';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ShowQr from './ShowQR';
+import checkboxChecked from '../assets/checkbox-checked-svgrepo-com.svg';
+import checkboxUnchecked from '../assets/checkbox-unchecked-svgrepo-com.svg';
+import styles from './StudentList.module.css';
 
 const students = studentsData;
 
@@ -33,6 +35,7 @@ const handleSeeButton = (id) => {
           <th>Email</th>
           <th>Mobile</th>
           <th>Ver QR</th>
+          <th>Asistente</th>
         </tr>
       </thead>
       <tbody>
@@ -44,6 +47,7 @@ const handleSeeButton = (id) => {
             <td>{student.phone}</td>
             <td><button onClick={() => handleSeeButton(student.studentId)}>Ver</button>
             </td>
+            <td><img src={checkboxUnchecked} alt="Ausente" className={styles.checkboximg}/></td>
           </tr>
         ))}
       </tbody>
