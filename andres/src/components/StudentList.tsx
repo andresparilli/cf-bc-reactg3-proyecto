@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import studentsData from '../data/students.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Use useEffect for cleaner loading logic
 import { useNavigate } from 'react-router-dom';
 import checkboxChecked from '../assets/checkbox-checked-svgrepo-com.svg';
 import checkboxUnchecked from '../assets/checkbox-unchecked-svgrepo-com.svg';
@@ -9,28 +9,28 @@ import useCheckBox from '../hooks/useCheckBox.js';
 
 const students = studentsData;
 
-const StudentList = (id) => {
-  const {isAssitantChecked} = useCheckBox(id);
-
+const StudentList = () => {
+  const { isAssitantChecked, toggleCheckBox } = useCheckBox();
 
   const navigate = useNavigate();
 
-const handleSeeButton = (id) => {   
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const handleSeeButton = (id) => {
     navigate(`/Student/${id}`);
   };
 
-
-
-  const [value, setValue] = useState(0);
-  setTimeout(()=>{
-    setValue(value + 1) 
-  },1000);
-  if (value < 2) {
-    return <div>Cargando registrados...</div>;
-  }
-
-  const handleCheckBox = () =>{
-
+  const handleCheckBox = (id) => {
+    toggleCheckBox(id);
   };
 
   return (
@@ -46,17 +46,35 @@ const handleSeeButton = (id) => {
         </tr>
       </thead>
       <tbody>
-        {students.map((student) => (
-          <tr key={student.studentId}>
-            <td>{student.fname}</td>
-            <td>{student.lname}</td>
-            <td>{student.email}</td>
-            <td>{student.phone}</td>
-            <td><button onClick={() => handleSeeButton(student.studentId)}>Ver</button>
+        {isLoading ? (
+          <tr>
+            <td colSpan="6" className={styles.loading}>
+              Cargando registrados...
             </td>
-            <td><img src={isAssitantChecked ? checkboxChecked :checkboxUnchecked} alt="Ausente" className={styles.checkboximg} onClick={handleCheckBox}/></td>
           </tr>
-        ))}
+        ) : (
+          students.map((student) => (
+            <tr key={student.studentId}>
+              <td>{student.fname}</td>
+              <td>{student.lname}</td>
+              <td>{student.email}</td>
+              <td>{student.phone}</td>
+              <td>
+                <button onClick={() => handleSeeButton(student.studentId)}>
+                  Ver
+                </button>
+              </td>
+              <td>
+                <img
+                  src={isAssitantChecked ? checkboxChecked : checkboxUnchecked}
+                  alt="Ausente"
+                  className={styles.checkboximg}
+                  onClick={() => handleCheckBox(student.studentId)}
+                />
+              </td>
+            </tr>
+          ))
+        )}
       </tbody>
     </Table>
   );
