@@ -14,10 +14,6 @@ interface RegisterFormData {
   movil: string;
 }
 
-type FieldErrors<T> = {
-  [key in keyof T]?: { type: string; message: string };
-};
-
 // Explicitly specify component props and return type
 const RegisterForm: React.FC = () => {
   const {
