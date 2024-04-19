@@ -14,17 +14,22 @@ interface RegisterFormData {
   movil: string;
 }
 
+const ASSISTANT_DATA = 'assistantData';
+
 // Explicitly specify component props and return type
 const RegisterForm: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterFormData>();
+  const {register, handleSubmit, formState: { errors },} = useForm<RegisterFormData>();
 
   // Define types for onSubmit parameters and return value
   const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (data: RegisterFormData) => {
-    console.log(data);
+    try{
+      localStorage.setItem(ASSISTANT_DATA, JSON.stringify(data));
+      alert('Registro exitoso');
+
+    } catch (error){
+      alert('Ha ocurrido un errror')
+    }
+
   };
 
   return (
