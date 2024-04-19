@@ -5,10 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import checkboxChecked from '../assets/checkbox-checked-svgrepo-com.svg';
 import checkboxUnchecked from '../assets/checkbox-unchecked-svgrepo-com.svg';
 import styles from './StudentList.module.css';
+import useCheckBox from '../hooks/useCheckBox.js';
 
 const students = studentsData;
 
-const StudentList = () => {
+const StudentList = (studentId) => {
+  const {isAssitantChecked} = useCheckBox(studentId);
+
 
   const navigate = useNavigate();
 
@@ -25,6 +28,10 @@ const handleSeeButton = (id) => {
   if (value < 2) {
     return <div>Cargando registrados...</div>;
   }
+
+  const handleCheckBox = () =>{
+
+  };
 
   return (
     <Table striped bordered hover variant="light">
@@ -47,7 +54,7 @@ const handleSeeButton = (id) => {
             <td>{student.phone}</td>
             <td><button onClick={() => handleSeeButton(student.studentId)}>Ver</button>
             </td>
-            <td><img src={checkboxUnchecked} alt="Ausente" className={styles.checkboximg}/></td>
+            <td><img src={isAssitantChecked ? checkboxChecked :checkboxUnchecked} alt="Ausente" className={styles.checkboximg} onClick={handleCheckBox}/></td>
           </tr>
         ))}
       </tbody>
