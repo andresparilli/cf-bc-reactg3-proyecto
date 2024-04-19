@@ -27,13 +27,13 @@ const RegisterForm: React.FC = () => {
   } = useForm<RegisterFormData>();
 
   // Define types for onSubmit parameters and return value
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (data: RegisterFormData) => {
+  const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (data: RegisterFormData) => {
     console.log(data);
   };
 
   return (
     <Container>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
         <Row className="justify-content-md-center">
           <Col>
             <Form.Label>¿Quién eres?: </Form.Label>
