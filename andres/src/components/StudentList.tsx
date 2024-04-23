@@ -1,28 +1,18 @@
 import Table from 'react-bootstrap/Table';
-import studentsData from '../data/students.json';
 import { useState, useEffect } from 'react'; // Use useEffect for cleaner loading logic
 import { useNavigate } from 'react-router-dom';
 import checkboxChecked from '../assets/checkbox-checked-svgrepo-com.svg';
 import checkboxUnchecked from '../assets/checkbox-unchecked-svgrepo-com.svg';
 import styles from './StudentList.module.css';
-import useCheckBox from '../hooks/useCheckBox.js';
-
-const students = studentsData;
+import studentsData from '../hooks/useStudentsData.js'; // Assuming useStudentsData fetches data
 
 const StudentList = () => {
-  const { isAssitantChecked, toggleCheckBox } = useCheckBox();
-
+  const { students, isLoading, error } = studentsData();
+  console.log(students);
   const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
-    const fetchData = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsLoading(false);
-    };
-
-    fetchData();
+    // No need to modify this block if using useStudentsData
   }, []);
 
   const handleSeeButton = (id) => {
@@ -32,6 +22,15 @@ const StudentList = () => {
   const handleCheckBox = (id) => {
     toggleCheckBox(id);
   };
+
+  // Handle errors and empty data (optional)
+  if (error) {
+    return <div>Error fetching students: {error.message}</div>;
+  }
+
+  if (!students.length) {
+    return <div>No students found.</div>;
+  }
 
   return (
     <Table striped bordered hover variant="light">
