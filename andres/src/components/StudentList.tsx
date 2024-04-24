@@ -34,7 +34,9 @@ const StudentList = () => {
   };
 
   const handleCheckBox = (studentId: string) => {
-    toggleCheckBox(studentId); // Assuming toggleCheckBox updates state based on studentId
+    // toggleCheckBox(id);
+    console.log("clik"+studentId);
+    toggleCheckBox(studentId);
   };
 
   return (

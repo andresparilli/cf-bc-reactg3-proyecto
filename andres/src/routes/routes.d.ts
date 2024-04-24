@@ -1,3 +1,7 @@
-// routes.d.ts
-declare const Routes: React.FC;
-export default Routes;
+interface Routes {
+    HomePage: React.FC;
+    // Other routes
+  }
+  
+  declare const routes: Routes;
+  export default routes;

@@ -23,7 +23,7 @@ const RegisterForm: React.FC = () => {
   // Define types for onSubmit parameters and return value
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); 
-    const data = new FormData(event.target);
+    const data = new FormData(event.target as HTMLFormElement);
     try {
         localStorage.setItem(ASSISTANT_DATA, JSON.stringify(data));
         alert('Registro exitoso');
