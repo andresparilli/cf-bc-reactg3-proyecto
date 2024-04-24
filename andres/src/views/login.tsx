@@ -11,7 +11,7 @@ const Login = () => {
         return <Navigate to="/" />;
     }
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         // Aqui es donde se lanza la llamada a la API para solicitar autenticacion

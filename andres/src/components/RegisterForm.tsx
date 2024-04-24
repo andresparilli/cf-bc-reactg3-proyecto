@@ -21,20 +21,21 @@ const RegisterForm: React.FC = () => {
   const {register, handleSubmit, formState: { errors },} = useForm<RegisterFormData>();
 
   // Define types for onSubmit parameters and return value
-  const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (data: RegisterFormData) => {
-    try{
-      localStorage.setItem(ASSISTANT_DATA, JSON.stringify(data));
-      alert('Registro exitoso');
-
-    } catch (error){
-      alert('Ha ocurrido un errror')
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); 
+    const data = new FormData(event.target);
+    try {
+        localStorage.setItem(ASSISTANT_DATA, JSON.stringify(data));
+        alert('Registro exitoso');
+    } catch (error) {
+        alert('Ha ocurrido un error');
     }
 
   };
 
   return (
     <Container>
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
+      <form onSubmit={(event) => handleSubmit(handleFormSubmit)(event)}>
         <Row className="justify-content-md-center">
           <Col>
             <Form.Label>¿Quién eres?: </Form.Label>
@@ -95,9 +96,9 @@ const RegisterForm: React.FC = () => {
         </Row>
       </form>
       <ul>
-          {Object.keys(errors).map((field) => (
+      {Object.keys(errors).map((field) => (
   <li key={field}>
-    {field}: {errors[field]?.message}
+    {field}: {errors[field]?.message} {/* Use optional chaining */}
   </li>
 ))}
     </ul>

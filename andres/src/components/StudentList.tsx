@@ -19,18 +19,22 @@ const StudentList = () => {
   useEffect(() => {
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (students.length === 0) {
+        console.warn('No student data found!'); // Or display a message to the user
+      }
       setIsLoading(false);
+
     };
 
     fetchData();
   }, []);
 
-  const handleSeeButton = (id) => {
+  const handleSeeButton = (id: string) => {
     navigate(`/Student/${id}`);
   };
 
-  const handleCheckBox = (id) => {
-    toggleCheckBox(id);
+  const handleCheckBox = (studentId: string) => {
+    toggleCheckBox(studentId); // Assuming toggleCheckBox updates state based on studentId
   };
 
   return (
@@ -48,7 +52,7 @@ const StudentList = () => {
       <tbody>
         {isLoading ? (
           <tr>
-            <td colSpan="6" className={styles.loading}>
+            <td colSpan={6} className={styles.loading}>
               Cargando registrados...
             </td>
           </tr>

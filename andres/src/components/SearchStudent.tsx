@@ -6,7 +6,7 @@ import { useState } from 'react';
 const SearchStudent = () => {
     const [search, setSearch] = useState('');
     
-    const  handleInputChange = (evt) => {
+    const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(evt.target.value);
     }
     const handleSubmit = () => {
